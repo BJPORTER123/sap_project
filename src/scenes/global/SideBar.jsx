@@ -42,8 +42,27 @@ const SideBar = () => {
         },
       }}
     >
-      <SideBar>
-        <Menu></Menu>
+      <SideBar collapsed={isCollapsed}>
+        <Menu iconShape="square">
+          {/* LOGO AND MENU ICON*/}
+          <MenuItem
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+            style={{
+              margin: "10px 0 20px 0 ",
+              color: colors.grey[100],
+            }}
+          >
+            {!isCollapsed && (
+              <Box>
+                <Typography>ADMINIS</Typography>
+                <IconButton>
+                  <MenuOutlinedIcon />
+                </IconButton>
+              </Box>
+            )}
+          </MenuItem>
+        </Menu>
       </SideBar>
     </Box>
   );
